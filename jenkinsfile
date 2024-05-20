@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+    stages {
+        stage ('welcome'){
+            steps {
+                echo "I'm inside the pipeline"
+            }
+        }
+        stage ('Build'){
+            steps {
+                script {
+                    docker.build('dockerimage')
+                }
+            
+            }
+        }
+    }
+}
+        
+
