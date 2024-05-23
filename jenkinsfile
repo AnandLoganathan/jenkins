@@ -11,10 +11,18 @@ pipeline {
                 script {
                     docker.build('dockerimage')
                 }
+            }
+        }
+        stage ('Run') {
+            steps {
+                script{
+                    docker.run('dockerimage')
+                }
+            }
+        }
             
             }
         }
-    }
-}
+
         
 
