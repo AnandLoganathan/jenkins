@@ -16,7 +16,7 @@ pipeline {
         stage ('Run') {
             steps {
                 script{
-                    sh 'docker run dockerimage'
+                    sh 'docker run -d --name viaJenkins dockerimage'
                 }
             }
         }
