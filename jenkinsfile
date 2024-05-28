@@ -16,7 +16,7 @@ pipeline {
         stage ('Run') {
             steps {
                 script{
-                    docker.run('dockerimage')
+                    sh 'docker run dockerimage'
                 }
             }
         }
