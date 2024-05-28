@@ -9,14 +9,14 @@ pipeline {
         stage ('Build'){
             steps {
                 script {
-                    docker.build('dockerimage')
+                    sh docker.build('dockerimage')
                 }
             }
         }
         stage ('Run') {
             steps {
                 script{
-                    docker.run('dockerimage')
+                   sh docker.run('dockerimage')
                 }
             }
         }
