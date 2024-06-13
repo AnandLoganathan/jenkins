@@ -22,6 +22,23 @@ pipeline {
         }
             
             }
+    post {
+    always {
+        mail to: 'anand.loganathan@vortexindia.co.in',
+             subject: "Pipeline Status: ${currentBuild.result}",
+             body: "The pipeline has completed with a ${currentBuild.result} result."
+    }
+    success {
+        mail to: 'anand.loganathan@vortexindia.co.in',
+             subject: "Pipeline Success: ${currentBuild.fullDisplayName}",
+             body: "The pipeline has completed successfully."
+    }
+    failure {
+        mail to: 'anand.loganathan@vortexindia.co.in',
+             subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
+             body: "Something is wrong with ${env.BUILD_URL}"
+    }
+}
         }
 
         
